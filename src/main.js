@@ -42,14 +42,13 @@ const render = () => {
 
 render()
 
-$('.addButton').on('click', () => {
-  let url = window.prompt('请输入要添加的网址')
-  if (url.indexOf('http') !== 0) {
-    url = 'https://' + url
+$(".addButton").on("click", () => {
+  let url = window.prompt("请输入要添加的网址")
+  if (url.indexOf("http") !== 0) {
+    url = "https://" + url
   }
-  console.log(url)
   hashMap.push({
-    logo: simplifyUrl(url)[0].toUpperCase(),
+    logo: simplifyUrl(url)[0],
     url: url
   })
   render()
@@ -57,10 +56,8 @@ $('.addButton').on('click', () => {
 
 window.onbeforeunload = () => {
   const string = JSON.stringify(hashMap)
-  localStorage.setItem('x', string)
+  localStorage.setItem("x", string)
 }
-
-
 
 const key=$(document).on('keypress',(e)=>{
   const key=e.key
@@ -72,8 +69,11 @@ const key=$(document).on('keypress',(e)=>{
       }
   })
 })
-
 $('.searchForm').on('keypress',(e)=>{
   e.stopPropagation()
 })
+
+
+
+
 

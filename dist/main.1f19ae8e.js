@@ -157,16 +157,15 @@ var render = function render() {
 };
 
 render();
-$('.addButton').on('click', function () {
-  var url = window.prompt('请输入要添加的网址');
+$(".addButton").on("click", function () {
+  var url = window.prompt("请输入要添加的网址");
 
-  if (url.indexOf('http') !== 0) {
-    url = 'https://' + url;
+  if (url.indexOf("http") !== 0) {
+    url = "https://" + url;
   }
 
-  console.log(url);
   hashMap.push({
-    logo: simplifyUrl(url)[0].toUpperCase(),
+    logo: simplifyUrl(url)[0],
     url: url
   });
   render();
@@ -174,7 +173,7 @@ $('.addButton').on('click', function () {
 
 window.onbeforeunload = function () {
   var string = JSON.stringify(hashMap);
-  localStorage.setItem('x', string);
+  localStorage.setItem("x", string);
 };
 
 var key = $(document).on('keypress', function (e) {
