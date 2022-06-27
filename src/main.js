@@ -62,12 +62,18 @@ window.onbeforeunload = () => {
 
 
 
-$(document).on('keypress', (e) => {
-  const {key} = e
-  for (let i = 0; i < hashMap.length; i++) {
-    if (hashMap[i].logo.toLowerCase() === key) {
-      window.open(hashMap[i].url)
-    }
-  }
+const key=$(document).on('keypress',(e)=>{
+  const key=e.key
+  hashMap.forEach((node)=>{
+      console.log(node.logo)
+      if(node.logo.toLowerCase()===key){
+          console.log(node.logo)
+          window.open(node.url)
+      }
+  })
+})
+
+$('.searchForm').on('keypress',(e)=>{
+  e.stopPropagation()
 })
 
